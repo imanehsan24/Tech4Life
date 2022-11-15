@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/ShahRenin/Tech4Life" target="_blank"><img src="https://lh5.googleusercontent.com/7OeLVt8Tqo6kwTfomEdsvRLJk2q3rEbU3QH0jBFlnFEWPA8bq6v27S77pkGo0leOnwU=w2400" width="400" alt="Tech4Life Logo"></a></p>
+<p align="center"><a href="https://github.com/ShahRenin/Tech4Life" target="_blank"><img src="https://lh5.googleusercontent.com/W8ofsaswOwYNEv3lQTIobbRHf_rStJxtpWeaMbyFdky6DRsPY77mCLQK4427C252ob4=w2400" width="400" alt="Tech4Life Logo"></a></p>
 
 
 ## About Us
