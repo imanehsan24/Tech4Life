@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\CourtController;
 use App\Http\Controllers\Admin\VenueController;
+use App\Http\Controllers\Member\MemberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/aboutus',function() {
+    return view('aboutus');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -38,5 +43,13 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::resource('/booking',BookingController::class);
     Route::resource('/court',CourtController::class);
 });
+
+Route::middleware(['auth', 'member'])->name('member.')->prefix('member')->group(function () {
+    Route::get('/', [MemberController::class, 'index'])->name('index');
+});
+
+Route::get('/registermember', function () {
+    return view('registermember');
+})->middleware(['auth', 'verified'])->name('registermember');
 
 require __DIR__.'/auth.php';
