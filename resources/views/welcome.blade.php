@@ -44,7 +44,7 @@
 				<li class="nav-item active">
 					<a class="nav-link" href="{{('/')}}">Home <span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{('aboutus')}}">About Us</a></li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">Venue</a>
@@ -58,6 +58,9 @@
 				<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 			</ul>
 			<div class="my-md-0 ml-lg-4 mt-4 mt-lg-0 ml-auto text-lg-right mb-3 mb-lg-0">
+				<a class="navbar-brand" href="{{route('register')}}">
+					<h3><span class="text-white text-capitalize">REGISTER</span></h3>
+				</a>
 				<a class="navbar-brand" href="{{route('login')}}">
 					<h3><span class="text-color">Login</span></h3>
 				</a>

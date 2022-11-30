@@ -20,6 +20,15 @@
                             {{ __('Admin') }}
                         </x-nav-link>
                     @endif
+                    @if (Auth::user()->is_member)
+                    <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
+                        {{ __('Member') }}
+                    </x-nav-link>
+                    @elseif(!Auth::user()->is_member && !Auth::user()->is_admin)
+                    <x-nav-link :href="route('registermember')" :active="request()->routeIs('registermember')">
+                        {{ __('Apply For Membership') }}
+                    </x-nav-link>
+                @endif
                 </div>
             </div>
 
