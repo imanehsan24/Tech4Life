@@ -27,6 +27,10 @@ Route::get('/aboutus',function() {
     return view('aboutus');
 });
 
+Route::get('/contactus',function() {
+    return view('contactus');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

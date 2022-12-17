@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CourtStoreRequest;
 use App\Models\Court;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CourtController extends Controller
 {
@@ -26,7 +28,7 @@ class CourtController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.court.create');
     }
 
     /**
@@ -35,9 +37,18 @@ class CourtController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CourtStoreRequest $request)
     {
-        //
+        $image = $request->file('image')->store('public/court');
+
+        Court::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image' => $image,
+            'price' => $request->price
+        ]);
+
+        return to_route('admin.court.index')->with('success', 'Court created successfully.');
     }
 
     /**
@@ -57,9 +68,9 @@ class CourtController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Court $court)
     {
-        //
+        return view('admin.court.edit', compact('court'));
     }
 
     /**
@@ -69,9 +80,26 @@ class CourtController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Court $court)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required'
+        ]);
+        $image = $court->image;
+        if ($request->hasFile('image')) {
+            Storage::delete($court->image);
+            $image = $request->file('image')->store('public/categories');
+        }
+
+        $court->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image' => $image,
+            'price' => $request->price
+        ]);
+        return to_route('admin.court.index')->with('success', 'Court updated successfully.');
     }
 
     /**
@@ -80,8 +108,11 @@ class CourtController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Court $court)
     {
-        //
+        Storage::delete($court->image);
+        $court->delete();
+
+        return to_route('admin.court.index')->with('danger', 'Court deleted successfully.');
     }
 }
