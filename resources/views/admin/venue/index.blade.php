@@ -11,7 +11,7 @@
                 <a href="{{ route('admin.venue.create') }}"
                     class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Add Venue</a>
             </div>
-            
+
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="bg-gray-50 dark:bg-gray-700">
@@ -28,8 +28,9 @@
                     class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                     Description
                 </th>
-                <th scope="col" class="relative py-3 px-6">
-                    <span class="sr-only">Edit</span>
+                <th scope="col"
+                    class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                    Edit
                 </th>
             </tr>
         </thead>
@@ -70,7 +71,7 @@
         </tbody>
     </table>
 </div>
-            
+
         </div>
     </div>
 </x-admin-layout>

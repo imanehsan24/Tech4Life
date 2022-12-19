@@ -32,7 +32,7 @@
 <!-- Header Start -->
 <nav class="navbar navbar-expand-lg navigation fixed-top" id="navbar">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="welcome.blade.php">
+		<a class="navbar-brand" href={{('welcome')}}>
 			<h2 class="text-white text-capitalize"></i>SP4<span class="text-color">Life</span></h2>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsid"
@@ -55,7 +55,7 @@
 					</ul>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="service.html">Booking</a></li>
-				<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{('contactus')}}">Contact</a></li>
 			</ul>
 			<div class="my-md-0 ml-lg-4 mt-4 mt-lg-0 ml-auto text-lg-right mb-3 mb-lg-0">
 				<a class="navbar-brand" href="{{route('register')}}">
