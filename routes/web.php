@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\VenueController;
 use App\Http\Controllers\Member\MemberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\VenueController as FrontendVenueController;
+use App\Http\Controllers\Frontend\CourtController as FrontendCourtController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/venue', [FrontendVenueController::class, 'index'])->name('venue.index');
+Route::get('/venue/{venue}', [FrontendVenueController::class, 'show'])->name('venue.show');
+Route::get('/court', [FrontendCourtController::class, 'index'])->name('court.index');
 
 Route::get('/aboutus',function() {
     return view('aboutus');

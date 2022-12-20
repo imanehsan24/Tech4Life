@@ -45,7 +45,8 @@
 					<a class="nav-link" href="{{('/')}}">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="{{('aboutus')}}">About Us</a></li>
-				<li class="nav-item dropdown">
+				<li class="nav-item"><a class="nav-link" href="{{ route('venue.index') }}">Venue</a></li>
+				<!--<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false">Venue</a>
 					<ul class="dropdown-menu">
@@ -53,7 +54,7 @@
 						<li><a class="dropdown-item" href="trainer.html">Squash</a></li>
 						<li><a class="dropdown-item" href="course.html">Football</a></li>
 					</ul>
-				</li>
+				</li>-->
 				<li class="nav-item"><a class="nav-link" href="service.html">Booking</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{('contactus')}}">Contact</a></li>
 			</ul>
