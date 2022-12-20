@@ -45,17 +45,9 @@
 					<a class="nav-link" href="{{('/')}}">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="{{('aboutus')}}">About Us</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{ route('venue.index') }}">Venue</a></li>
-				<!--<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">Venue</a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="about.html">Badminton</a></li>
-						<li><a class="dropdown-item" href="trainer.html">Squash</a></li>
-						<li><a class="dropdown-item" href="course.html">Football</a></li>
-					</ul>
-				</li>-->
-				<li class="nav-item"><a class="nav-link" href="service.html">Booking</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{ route('venue.index') }}">Sports</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('court.index') }}">Courts</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{ route('booking.step1') }}">Booking</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{('contactus')}}">Contact</a></li>
 			</ul>
 			<div class="my-md-0 ml-lg-4 mt-4 mt-lg-0 ml-auto text-lg-right mb-3 mb-lg-0">
@@ -83,9 +75,9 @@
                     </li>
                     <li class="list-inline-item"><span class="text-white">|</span></li>
                     <li class="list-inline-item"><a href="#"
-                            class="text-color text-uppercase text-sm letter-spacing">Venues</a></li>
+                            class="text-color text-uppercase text-sm letter-spacing">Sports</a></li>
                 </ul>
-                <h1 class="text-lg text-white mt-2">Our Venues</h1>
+                <h1 class="text-lg text-white mt-2">Sport Venues</h1>
             </div>
         </div>
     </div>
@@ -98,20 +90,22 @@
 			<div class="col-lg-8 text-center">
 				<div class="section-title">
 					<div class="divider mb-3"></div>
-					<h2>Booking Venues</h2>
-					<p>We offer the best venue for doing sports activities.</p>
+					<h2>Sport Venues</h2>
+					<p>Take A Pick For Selection Of Sports</p>
 				</div>
 			</div>
 		</div>
 
 		<div class="row">
-            @foreach ($venue->court as $court)
+            @foreach ($venue as $venue)
                 <div class="col-lg-3 col-md-6">
                     <div class="card border-0 rounded-0 p-0 mb-5 mb-lg-0 shadow-sm">
-					    <img src="{{ Storage::url($court->image) }}" alt="" class="img-fluid">
+					    <img src="{{ Storage::url($venue->image) }}" alt="" class="img-fluid">
 					    <div class="card-body">
-						<a href="{{ route('venue.show', $court->id) }}"><h4 class="font-secondary mb-0">{{ $court->name }}</h4></a>
-					    </div>
+						    <a href="{{ route('venue.show', $venue->id) }}"><h4 class="font-secondary mb-0">{{ $venue->name }}</h4></a>
+                            <p>{{ $venue->description }}</p>
+                            <h4 class="text-green">RM price here</h4>
+                        </div>
 				    </div>
                 </div>
             @endforeach

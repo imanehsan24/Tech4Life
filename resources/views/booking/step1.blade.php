@@ -75,9 +75,9 @@
                     </li>
                     <li class="list-inline-item"><span class="text-white">|</span></li>
                     <li class="list-inline-item"><a href="#"
-                            class="text-color text-uppercase text-sm letter-spacing">Sports</a></li>
+                            class="text-color text-uppercase text-sm letter-spacing">Booking</a></li>
                 </ul>
-                <h1 class="text-lg text-white mt-2">Sport Venues</h1>
+                <h1 class="text-lg text-white mt-2">Book Here</h1>
             </div>
         </div>
     </div>
@@ -85,30 +85,51 @@
 
 <!-- Section Course Start -->
 <section class="section course bg-gray">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-8 text-center">
-				<div class="section-title">
-					<div class="divider mb-3"></div>
-					<h2>Sport List</h2>
-					<p>Take A Pick For Selection Of Sports</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-            @foreach ($venue as $venue)
-                <div class="col-lg-3 col-md-6">
-                    <div class="card border-0 rounded-0 p-0 mb-5 mb-lg-0 shadow-sm">
-					    <img src="{{ Storage::url($venue->image) }}" alt="" class="img-fluid">
-					    <div class="card-body">
-						    <a href="{{ route('venue.show', $venue->id) }}"><h4 class="font-secondary mb-0">{{ $venue->name }}</h4></a>
-					    </div>
-				    </div>
+	<div class="container"  style="background-color: #cccccc;">
+        <div class="my-3 row rounded-md py-2 px-3">
+            <form method="POST" action="#" enctype="multipart/form-data">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Name">
                 </div>
-            @endforeach
-		</div>
-	</div>
+                <div class="form-group col-md-6">
+                  <label for="telephone">Telephone Number</label>
+                  <input type="text" class="form-control" id="telephone" placeholder="Telephone Number">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Address</label>
+                <input type="text" class="form-control" id="email" placeholder="example@gmail.com">
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="book_time" class="block text-sm font-medium text-gray-700"> Booking Date
+                </label>
+                <div class="mt-1">
+                    <input type="datetime-local" id="book_time" name="book_time"
+                        class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="status" class="block text-sm font-medium text-gray-700">Court</label>
+                  <div class="mt-1">
+                      <select id="courts_id" name="courts_id" class="form-multiselect block w-full mt-1">
+                          <!--@foreach ($courts as $court)
+                              <option value="{{ $court->id }}">{{ $court->name }}
+                                  ({{ $court->courts_id }} Guests)
+                              </option>
+                          @endforeach-->
+                      </select>
+                  </div>
+              </div>
+              <div class="mx-auto mt-6 p-4">
+                <button type="submit"
+                    class="bg-indigo-500 hover:bg-indigo-700 rounded-lg text-black">Submit</button>
+              </div>
+            </form>
+        </div>
+      </div>
 </section>
 <!-- Section Course ENd -->
 

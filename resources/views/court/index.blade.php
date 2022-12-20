@@ -75,9 +75,9 @@
                     </li>
                     <li class="list-inline-item"><span class="text-white">|</span></li>
                     <li class="list-inline-item"><a href="#"
-                            class="text-color text-uppercase text-sm letter-spacing">Sports</a></li>
+                            class="text-color text-uppercase text-sm letter-spacing">Courts</a></li>
                 </ul>
-                <h1 class="text-lg text-white mt-2">Sport Venues</h1>
+                <h1 class="text-lg text-white mt-2">Sport Courts</h1>
             </div>
         </div>
     </div>
@@ -90,20 +90,22 @@
 			<div class="col-lg-8 text-center">
 				<div class="section-title">
 					<div class="divider mb-3"></div>
-					<h2>Sport List</h2>
-					<p>Take A Pick For Selection Of Sports</p>
+					<h2>Sport Courts</h2>
+					<p>Take A Look On Available Courts (price based on per hour)</p>
 				</div>
 			</div>
 		</div>
 
 		<div class="row">
-            @foreach ($venue as $venue)
+            @foreach ($court as $court)
                 <div class="col-lg-3 col-md-6">
                     <div class="card border-0 rounded-0 p-0 mb-5 mb-lg-0 shadow-sm">
-					    <img src="{{ Storage::url($venue->image) }}" alt="" class="img-fluid">
+					    <img src="{{ Storage::url($court->image) }}" alt="" class="img-fluid">
 					    <div class="card-body">
-						    <a href="{{ route('venue.show', $venue->id) }}"><h4 class="font-secondary mb-0">{{ $venue->name }}</h4></a>
-					    </div>
+						    <a href="{{ route('venue.show', $court->id) }}"><h4 class="font-secondary mb-0">{{ $court->name }}</h4></a>
+                            <p>{{ $court->description }}</p>
+                            <h4 class="text-green">RM {{ $court->price }}</h4>
+                        </div>
 				    </div>
                 </div>
             @endforeach
