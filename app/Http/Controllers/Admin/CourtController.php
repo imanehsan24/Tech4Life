@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CourtStoreRequest;
 use App\Models\Court;
+use App\Models\Sport;
+use App\Models\Venue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,7 +30,8 @@ class CourtController extends Controller
      */
     public function create()
     {
-        return view('admin.court.create');
+        $sports = Sport::all();
+        return view('admin.court.create', compact('sports'));
     }
 
     /**
@@ -41,12 +44,16 @@ class CourtController extends Controller
     {
         $image = $request->file('image')->store('public/court');
 
-        Court::create([
+        $court = Court::create([
             'name' => $request->name,
             'description' => $request->description,
             'image' => $image,
             'price' => $request->price
         ]);
+
+        if ($request->has('sport')) {
+            $court->sport()->attach($request->sports);
+        }
 
         return to_route('admin.court.index')->with('success', 'Court created successfully.');
     }
@@ -90,7 +97,7 @@ class CourtController extends Controller
         $image = $court->image;
         if ($request->hasFile('image')) {
             Storage::delete($court->image);
-            $image = $request->file('image')->store('public/categories');
+            $image = $request->file('image')->store('public/courts');
         }
 
         $court->update([

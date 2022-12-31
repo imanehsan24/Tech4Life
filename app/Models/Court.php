@@ -10,4 +10,13 @@ class Court extends Model
     use HasFactory;
 
     protected $fillable = ['name','image','description','price'];
+
+    public function sports()
+    {
+        return $this->belongsToMany(Sport::class,'sport_court');
+    }
+
+    public function bookings(){
+        return $this->belongsTo(Booking::class);
+    }
 }

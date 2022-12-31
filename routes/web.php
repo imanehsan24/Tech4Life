@@ -3,7 +3,11 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\CourtController;
-use App\Http\Controllers\Admin\VenueController;
+use App\Http\Controllers\Admin\SportController;
+use App\Http\Controllers\Frontend\BookingController as FrontendBookingController;
+use App\Http\Controllers\Frontend\CourtController as FrontendCourtController;
+use App\Http\Controllers\Frontend\SportController as FrontendSportController;
+use App\Http\Controllers\Frontend\WelcomeController;
 use App\Http\Controllers\Member\MemberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +35,15 @@ Route::get('/contactus',function() {
     return view('contactus');
 });
 
+Route::get('/court',[FrontendCourtController::class, 'index'])->name('court.index');
+
+Route::get('/sport', [FrontendSportController::class, 'index'])->name('sport.index');
+Route::get('/sport/{sport}', [FrontendSportController::class, 'show'])->name('sport.show');
+
+Route::get('/booking', [FrontendBookingController::class, 'stepOne'])->name('booking.step.one');
+Route::get('/aboutus', [WelcomeController::class, 'aboutus'])->name('aboutus');
+Route::get('/contactus', [WelcomeController::class, 'contactus'])->name('contactus');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -43,7 +56,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
-    Route::resource('/venue', VenueController::class);
+    Route::resource('/sport', SportController::class);
     Route::resource('/booking',BookingController::class);
     Route::resource('/court',CourtController::class);
 });

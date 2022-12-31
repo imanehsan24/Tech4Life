@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\VenueStoreRequest;
-use App\Models\Venue;
+use App\Http\Requests\SportStoreRequest;
+use App\Models\Sport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class VenueController extends Controller
+class SportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class VenueController extends Controller
      */
     public function index()
     {
-        $venues = Venue::all();
-        return view('admin.venue.index',compact('venues'));
+        $sports = Sport::all();
+        return view('admin.sport.index',compact('sports'));
     }
 
     /**
@@ -28,7 +28,7 @@ class VenueController extends Controller
      */
     public function create()
     {
-        return view('admin.venue.create');
+        return view('admin.sport.create');
     }
 
     /**
@@ -37,17 +37,17 @@ class VenueController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(VenueStoreRequest $request)
+    public function store(SportStoreRequest $request)
     {
-        $image = $request->file('image')->store('public/venue');
+        $image = $request->file('image')->store('public/sport');
 
-        Venue::create([
+        Sport::create([
             'name' => $request->name,
             'description' => $request->description,
             'image' => $image
         ]);
 
-        return to_route('admin.venue.index')->with('success', 'Venue created successfully.');
+        return to_route('admin.sport.index')->with('success', 'Sport created successfully.');
     }
 
     /**
@@ -67,9 +67,9 @@ class VenueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Venue $venue)
+    public function edit(Sport $sport)
     {
-        return view('admin.venue.edit', compact('venue'));
+        return view('admin.sport.edit', compact('sport'));
     }
 
     /**
@@ -79,24 +79,24 @@ class VenueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Venue $venue)
+    public function update(Request $request,Sport $sport)
     {
         $request->validate([
             'name' => 'required',
             'description' => 'required'
         ]);
-        $image = $venue->image;
+        $image = $sport->image;
         if ($request->hasFile('image')) {
-            Storage::delete($venue->image);
-            $image = $request->file('image')->store('public/categories');
+            Storage::delete($sport->image);
+            $image = $request->file('image')->store('public/sports');
         }
 
-        $venue->update([
+        $sport->update([
             'name' => $request->name,
             'description' => $request->description,
             'image' => $image
         ]);
-        return to_route('admin.venue.index')->with('success', 'Venue updated successfully.');
+        return to_route('admin.sport.index')->with('success', 'Sport updated successfully.');
     }
 
     /**
@@ -105,11 +105,11 @@ class VenueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Venue $venue)
+    public function destroy(Sport $sport)
     {
-        Storage::delete($venue->image);
-        $venue->delete();
+        Storage::delete($sport->image);
+        $sport->delete();
 
-        return to_route('admin.venue.index')->with('danger', 'Venue deleted successfully.');
+        return to_route('admin.sport.index')->with('danger', 'Sport deleted successfully.');
     }
 }

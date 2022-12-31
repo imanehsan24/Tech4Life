@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Home') }}
                     </x-nav-link>
                     @if (Auth::user()->is_admin)
                         <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
@@ -29,6 +29,21 @@
                         {{ __('Apply For Membership') }}
                     </x-nav-link>
                 @endif
+                <x-nav-link :href="route('aboutus')" :active="request()->routeIs('aboutus')">
+                    {{ __('About Us') }}
+                </x-nav-link>
+                <x-nav-link :href="route('sport.index')" :active="request()->routeIs('sport.index')">
+                    {{ __('Sports') }}
+                </x-nav-link>
+                <x-nav-link :href="route('court.index')" :active="request()->routeIs('court.index')">
+                    {{ __('Courts') }}
+                </x-nav-link>
+                <x-nav-link :href="route('booking.step.one')" :active="request()->routeIs('booking.step.one')">
+                    {{ __('Booking') }}
+                </x-nav-link>
+                <x-nav-link :href="route('contactus')" :active="request()->routeIs('contactus')">
+                    {{ __('Contact') }}
+                </x-nav-link>
                 </div>
             </div>
 

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BookingStoreRequest;
 use App\Models\Booking;
+use App\Models\Court;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class BookingController extends Controller
 {
@@ -26,7 +29,8 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+        $courts = Court::all();
+        return view('admin.booking.create',compact('courts'));
     }
 
     /**
@@ -35,9 +39,18 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookingStoreRequest $request)
     {
-        //
+        Booking::create([
+            'name' => $request->name,
+            'booking_number' => $request->booking_number,
+            'email' => $request->email,
+            'tel_number' => $request->tel_number,
+            'book_time' => $request->book_time,
+            'court_id' => $request->courts_id
+        ]);
+
+        return to_route('admin.booking.index')->with('success', 'Booking created successfully.');
     }
 
     /**

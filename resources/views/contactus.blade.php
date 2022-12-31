@@ -28,42 +28,35 @@
 
 <!-- Header Start -->
 <nav class="navbar navbar-expand-lg navigation fixed-top" id="navbar">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="welcome.blade.php">
-			<h2 class="text-white text-capitalize"></i>SP4<span class="text-color">Life</span></h2>
-		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsid"
-			aria-controls="navbarsid" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="ti-view-list"></span>
-		</button>
-		<div class="collapse text-center navbar-collapse" id="navbarsid">
-			<ul class="navbar-nav mx-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="{{('/')}}">Home <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="{{('aboutus')}}">About Us</a></li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">Venue</a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="about.html">Badminton</a></li>
-						<li><a class="dropdown-item" href="trainer.html">Squash</a></li>
-						<li><a class="dropdown-item" href="course.html">Football</a></li>
-					</ul>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="service.html">Booking</a></li>
-				<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-			</ul>
-			<div class="my-md-0 ml-lg-4 mt-4 mt-lg-0 ml-auto text-lg-right mb-3 mb-lg-0">
-				<a class="navbar-brand" href="{{route('register')}}">
-					<h3><span class="text-white text-capitalize">REGISTER</span></h3>
-				</a>
-				<a class="navbar-brand" href="{{route('login')}}">
-					<h3><span class="text-color">Login</span></h3>
-				</a>
-			</div>
-		</div>
-	</div>
+  <div class="container-fluid">
+      <a class="navbar-brand" href={{('/')}}>
+          <h2 class="text-white text-capitalize"></i>SP4<span class="text-color">Life</span></h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsid"
+          aria-controls="navbarsid" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="ti-view-list"></span>
+      </button>
+      <div class="collapse text-center navbar-collapse" id="navbarsid">
+          <ul class="navbar-nav mx-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="{{('/')}}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="{{('aboutus')}}">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('sport.index') }}">Sports</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('court.index') }}">Courts</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('booking.step.one') }}">Booking</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{('contactus')}}">Contact</a></li>
+          </ul>
+          <div class="my-md-0 ml-lg-4 mt-4 mt-lg-0 ml-auto text-lg-right mb-3 mb-lg-0">
+              <a class="navbar-brand" href="{{route('register')}}">
+                  <h3><span class="text-white text-capitalize">REGISTER</span></h3>
+              </a>
+              <a class="navbar-brand" href="{{route('login')}}">
+                  <h3><span class="text-color">Login</span></h3>
+              </a>
+          </div>
+      </div>
+  </div>
 </nav>
 
 
@@ -142,15 +135,15 @@
 
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 			</div>
-			
+
 			<div class="col-lg-5 col-md-5 mb-5 mb-lg-0">
 				<div class="footer-widget">
 					<h4 class="mb-4 text-white letter-spacing text-uppercase">Quick Links</h4>
 					<ul class="list-unstyled footer-menu lh-40 mb-0">
-						<li><a href="about.html"><i class="ti-angle-double-right mr-2"></i>About Us</a></li>
-						<li><a href="service.html"><i class="ti-angle-double-right mr-2"></i>Venue</a></li>
-						<li><a href="pricing.html"><i class="ti-angle-double-right mr-2"></i>Booking</a></li>
-						<li><a href="contact.html"><i class="ti-angle-double-right mr-2"></i>Contact us</a></li>
+                      <li><a href="{{('aboutus')}}"><i class="ti-angle-double-right mr-2"></i>About Us</a></li>
+                      <li><a href="{{('sport')}}"><i class="ti-angle-double-right mr-2"></i>Sport</a></li>
+                      <li><a href="{{('booking')}}"><i class="ti-angle-double-right mr-2"></i>Booking</a></li>
+                      <li><a href="{{('contactus')}}"><i class="ti-angle-double-right mr-2"></i>Contact us</a></li>
 					</ul>
 				</div>
 			</div>
@@ -170,7 +163,7 @@
 </footer>
    </div>
 
-   <!-- 
+   <!--
     Essential Scripts
     =====================================-->
 
