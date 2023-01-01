@@ -68,7 +68,7 @@
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{{('dashboard')}}">Dashboard</a></li>
             <li><a class="dropdown-item" href="{{route('profile.edit')}}">Profile</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li><a class="dropdown-item" href="{{('logout')}}">Logout</a></li>
         </ul>
             </li>
             </div>

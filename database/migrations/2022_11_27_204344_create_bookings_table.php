@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('tel_number');
             $table->dateTime('book_time');
             $table->unsignedBigInteger('courts_id');
+            $table->foreign('courts_id')->references('id')->on('courts');
             $table->timestamps();
         });
     }

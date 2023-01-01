@@ -17,6 +17,6 @@ class Court extends Model
     }
 
     public function bookings(){
-        return $this->belongsTo(Booking::class);
+        return $this->belongsToMany(Booking::class,'booking_court');
     }
 }

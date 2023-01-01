@@ -108,6 +108,7 @@ class SportController extends Controller
     public function destroy(Sport $sport)
     {
         Storage::delete($sport->image);
+        $sport->courts()->detach();
         $sport->delete();
 
         return to_route('admin.sport.index')->with('danger', 'Sport deleted successfully.');

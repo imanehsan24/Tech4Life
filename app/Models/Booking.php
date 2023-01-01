@@ -9,14 +9,17 @@ class Booking extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','booking_number','email','tel_number','book_time','courts_id'];
-
-    protected $dates = [
-        'book_date'
+    protected $fillable = [
+        'name',
+        'booking_number',
+        'email',
+        'tel_number',
+        'book_time',
+        'courts_id'
     ];
 
-    public function courts()
-    {
-        return $this->belongsTo(Court::class);
+    public function courts(){
+        return $this->belongsTo(Court::class,'booking_court');
     }
+
 }

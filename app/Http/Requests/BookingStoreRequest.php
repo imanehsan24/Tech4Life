@@ -2,9 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\DateBetween;
-use App\Rules\TimeBetween;
-use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
 class BookingStoreRequest extends FormRequest
@@ -31,8 +28,8 @@ class BookingStoreRequest extends FormRequest
             'booking_number' => ['required'],
             'email' => ['required', 'email'],
             'tel_number' => ['required'],
-            'book_time' => ['required','date'],
-            'court_id' => ['required'],
+            'book_time' => ['required'],
+            'courts_id' => ['required'],
         ];
     }
 }

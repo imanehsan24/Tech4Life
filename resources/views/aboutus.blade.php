@@ -51,6 +51,7 @@
 				<li class="nav-item"><a class="nav-link" href="{{('booking')}}">Booking</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{('contactus')}}">Contact</a></li>
 			</ul>
+            @if (!Auth::check())
 			<div class="my-md-0 ml-lg-4 mt-4 mt-lg-0 ml-auto text-lg-right mb-3 mb-lg-0">
 				<a class="navbar-brand" href="{{route('register')}}">
 					<h3><span class="text-white text-capitalize">REGISTER</span></h3>
@@ -59,6 +60,20 @@
 					<h3><span class="text-color">Login</span></h3>
 				</a>
 			</div>
+            @endif
+            @if (Auth::check())
+            <div class="btn-group-left">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"><h3><span class="text-white text-capitalize">{{ Auth::user()->name }}</span></h3></a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{('dashboard')}}">Dashboard</a></li>
+            <li><a class="dropdown-item" href="{{route('profile.edit')}}">Profile</a></li>
+            <li><a class="dropdown-item" href="{{('logout')}}">Logout</a></li>
+        </ul>
+            </li>
+            </div>
+            @endif
 		</div>
 	</div>
 </nav>

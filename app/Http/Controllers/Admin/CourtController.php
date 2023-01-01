@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CourtStoreRequest;
 use App\Models\Court;
 use App\Models\Sport;
-use App\Models\Venue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -51,8 +50,8 @@ class CourtController extends Controller
             'price' => $request->price
         ]);
 
-        if ($request->has('sport')) {
-            $court->sport()->attach($request->sports);
+        if ($request->has('sports')) {
+            $court->sports()->attach($request->sports);
         }
 
         return to_route('admin.court.index')->with('success', 'Court created successfully.');
@@ -118,6 +117,7 @@ class CourtController extends Controller
     public function destroy(Court $court)
     {
         Storage::delete($court->image);
+        $court->sports()->detach();
         $court->delete();
 
         return to_route('admin.court.index')->with('danger', 'Court deleted successfully.');
