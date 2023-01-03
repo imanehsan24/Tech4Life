@@ -92,7 +92,7 @@
                     <li class="list-inline-item"><a href="#"
                             class="text-color text-uppercase text-sm letter-spacing">Courts</a></li>
                 </ul>
-                <h1 class="text-lg text-white mt-2">Sport Courts</h1>
+                <h1 class="text-lg text-white mt-2">Courts</h1>
             </div>
         </div>
     </div>
@@ -105,7 +105,7 @@
 			<div class="col-lg-8 text-center">
 				<div class="section-title">
 					<div class="divider mb-3"></div>
-					<h2>Sport Courts</h2>
+					<h2>Courts List</h2>
 					<p>Take A Look On Available Courts (price based on per hour)</p>
 				</div>
 			</div>
@@ -117,10 +117,10 @@
                     <div class="card border-0 rounded-0 p-0 mb-5 mb-lg-0 shadow-sm">
 					    <img src="{{ Storage::url($court->image) }}" alt="" class="img-fluid">
 					    <div class="card-body">
-						    <a href="{{ route('sport.show', $court->id) }}"><h4 class="font-secondary mb-0">{{ $court->name }}</h4></a>
+						    <a href="{{ route('court.show', $court->id) }}"><h4 class="font-secondary mb-0">{{ $court->name }}</h4></a>
                             <p>{{ $court->description }}</p>
-                            <h4 class="text-green">RM {{ $court->price }}</h4>
-                        </div>
+                            <h4>RM {{ ($court->price) }}</h4>
+					    </div>
 				    </div>
                 </div>
             @endforeach
@@ -140,19 +140,18 @@
 
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 			</div>
-
 			<div class="col-lg-5 col-md-5 mb-5 mb-lg-0">
-				<div class="footer-widget">
-					<h4 class="mb-4 text-white letter-spacing text-uppercase">Quick Links</h4>
-					<ul class="list-unstyled footer-menu lh-40 mb-0">
+              <div class="footer-widget">
+                  <h4 class="mb-4 text-white letter-spacing text-uppercase">Quick Links</h4>
+                  <ul class="list-unstyled footer-menu lh-40 mb-0">
                       <li><a href="{{('aboutus')}}"><i class="ti-angle-double-right mr-2"></i>About Us</a></li>
                       <li><a href="{{('sport')}}"><i class="ti-angle-double-right mr-2"></i>Sport</a></li>
                       <li><a href="{{('booking')}}"><i class="ti-angle-double-right mr-2"></i>Booking</a></li>
                       <li><a href="{{('contactus')}}"><i class="ti-angle-double-right mr-2"></i>Contact us</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+                  </ul>
+              </div>
+          </div>
+      </div>
 
 		<div class="row align-items-center mt-5 px-3 bg-black mx-1">
 			<div class="col-lg-4">

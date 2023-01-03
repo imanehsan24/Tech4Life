@@ -11,6 +11,7 @@ use App\Http\Controllers\Frontend\WelcomeController;
 use App\Http\Controllers\Member\MemberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\VenueController as FrontendVenueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ Route::get('/contactus',function() {
 });
 
 Route::get('/court',[FrontendCourtController::class, 'index'])->name('court.index');
+Route::get('/court/{court}',[FrontendCourtController::class, 'show'])->name('court.show');
 
 Route::get('/sport', [FrontendSportController::class, 'index'])->name('sport.index');
 Route::get('/sport/{sport}', [FrontendSportController::class, 'show'])->name('sport.show');

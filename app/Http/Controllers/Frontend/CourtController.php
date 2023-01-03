@@ -15,8 +15,9 @@ class CourtController extends Controller
         return view('court.index', compact('courts'));
     }
 
-    public function show(Sport $sport)
+    public function show(Court $court)
     {
-        return view('sport.show', compact('sport'));
+        return view('court.show', compact('court'));
     }
+
 }

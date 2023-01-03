@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-  <title>SP4Life Sports</title>
+  <title>SP4Life Courts</title>
 
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="{{url('plugins/bootstrap/css/bootstrap.min.css')}}">
@@ -100,31 +100,39 @@
 
 <!-- Section Course Start -->
 <section class="section course bg-gray">
-	<div class="container">
+    <div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-8 text-center">
 				<div class="section-title">
 					<div class="divider mb-3"></div>
-					<h2>Sports</h2>
-					<p>Take A Pick For Selection Of Sports</p>
+					<h2>Courts</h2>
+					<p>Take A Look On Available Courts (price based on per hour)</p>
 				</div>
 			</div>
 		</div>
 
-		<div class="row">
-            @foreach ($sport->courts as $court)
-                <div class="col-lg-3 col-md-6">
-                    <div class="card border-0 rounded-0 p-0 mb-5 mb-lg-0 shadow-sm">
-					    <img src="{{ Storage::url($court->image) }}" alt="" class="img-fluid">
-					    <div class="card-body">
-						    <a href="{{ route('court.show', $court->id) }}"><h4 class="font-secondary mb-0">{{ $court->name }}</h4></a>
-                            <p>{{ $court->description }}</p>
-                            <h4 class="text-green">RM {{ $court->price }}</h4>
-                        </div>
-				    </div>
-                </div>
-            @endforeach
-		</div>
+        <div class="container-fluid text-center">
+            <div class="row justify-content-center">
+              <div class="col-md-4 d-flex align-items-center">
+                <img src="{{ Storage::url($court->image) }}" class="img-fluid mx-auto" alt="Product Name">
+              </div>
+              <div class="col-md-6 d-flex flex-column text-center">
+                <h5 class="text-primary display-4">{{ $court->name }}</h5>
+                <p class="lead">{{ $court->description }}</p>
+                <h6 class="text-muted display-4">RM {{ ($court->price) }} <span><p>per hour</p></span></h6>
+                <p><small class="text-muted text-uppercase">{{ $court->status }}</small></p>
+              </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-9 text-center">
+              <div class="text-center">
+                <a href="{{ route('booking.step.one') }}"><button class="btn btn-main mt-3 " type="">BOOK NOW</button></a>
+              </div>
+            </div>
+        </div>
+
 	</div>
 </section>
 <!-- Section Course ENd -->
