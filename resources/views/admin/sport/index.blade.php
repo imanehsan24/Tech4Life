@@ -8,8 +8,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-end m-2 p-2">
-                <a href="{{ route('admin.venue.create') }}"
-                    class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Add Venue</a>
+                <a href="{{ route('admin.sport.create') }}"
+                    class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Add Sport</a>
             </div>
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -35,30 +35,30 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($venues as $venue)
+            @foreach ($sports as $sport)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <td
                         class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $venue->name }}
+                        {{ $sport->name }}
                     </td>
                     <td
                         class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        <img src="{{Storage::url($venue->image) }}"
+                        <img src="{{Storage::url($sport->image) }}"
                             class="w-16 h-16 rounded">
                     </td>
                     <td
                         class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $venue->description }}
+                        {{ $sport->description }}
                     </td>
                     <td
                         class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         <div class="flex space-x-2">
-                            <a href="{{ route('admin.venue.edit', $venue->id) }}"
+                            <a href="{{ route('admin.sport.edit', $sport->id) }}"
                                 class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg  text-white">Edit</a>
                             <form
                                 class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
                                 method="POST"
-                                action="{{ route('admin.venue.destroy', $venue->id) }}"
+                                action="{{ route('admin.sport.destroy', $sport->id) }}"
                                 onsubmit="return confirm('Are you sure?');">
                                 @csrf
                                 @method('DELETE')

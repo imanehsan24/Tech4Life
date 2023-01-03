@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>SP4Life Contact Us</title>
+
+  <title>SP4Life Main Page</title>
 
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="{{url('plugins/bootstrap/css/bootstrap.min.css')}}">
@@ -26,6 +27,7 @@
 </head>
 <body>
 
+
 <!-- Section Menu Start -->
 <!-- Header Start -->
 <nav class="navbar navbar-expand-lg navigation fixed-top" id="navbar">
@@ -43,12 +45,11 @@
 					<a class="nav-link" href="{{('/')}}">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="{{('aboutus')}}">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{('sport')}}">Sports</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{('court')}}">Courts</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{('booking')}}">Booking</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{ route('sport.index') }}">Sports</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('court.index') }}">Courts</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Booking</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{('contactus')}}">Contact</a></li>
 			</ul>
-            @if (!Auth::check())
 			<div class="my-md-0 ml-lg-4 mt-4 mt-lg-0 ml-auto text-lg-right mb-3 mb-lg-0">
 				<a class="navbar-brand" href="{{route('register')}}">
 					<h3><span class="text-white text-capitalize">REGISTER</span></h3>
@@ -57,20 +58,6 @@
 					<h3><span class="text-color">Login</span></h3>
 				</a>
 			</div>
-            @endif
-            @if (Auth::check())
-            <div class="btn-group-left">
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false"><h3><span class="text-white text-capitalize">{{ Auth::user()->name }}</span></h3></a>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{('dashboard')}}">Dashboard</a></li>
-            <li><a class="dropdown-item" href="{{route('profile.edit')}}">Profile</a></li>
-            <li><a class="dropdown-item" href="{{('logout')}}">Logout</a></li>
-        </ul>
-            </li>
-            </div>
-            @endif
 		</div>
 	</div>
 </nav>
@@ -78,69 +65,56 @@
 
 <!-- Header Close -->
 
-<div class="main-wrapper ">
 <section class="page-title bg-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-          <ul class="list-inline mb-0">
-            <li class="list-inline-item"><a href="index.html" class="text-sm letter-spacing text-white text-uppercase font-weight-bold">Home</a></li>
-            <li class="list-inline-item"><span class="text-white">|</span></li>
-            <li class="list-inline-item"><a href="#" class="text-color text-uppercase text-sm letter-spacing">contact</a></li>
-          </ul>
-           <h1 class="text-lg text-white mt-2">Contact Us</h1>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- contact form start -->
-<section class="contact-form section">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <div class="section-title">
-          <div class="divider mb-3"></div>
-          <h2>Contact Us</h2>
-          <p class="mt-3">Feel free to ask us about anything here!</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><a href="#"
+                            class="text-sm letter-spacing text-white text-uppercase font-weight-bold">Home</a>
+                    </li>
+                    <li class="list-inline-item"><span class="text-white">|</span></li>
+                    <li class="list-inline-item"><a href="#"
+                            class="text-color text-uppercase text-sm letter-spacing">Sports</a></li>
+                </ul>
+                <h1 class="text-lg text-white mt-2">Sports</h1>
+            </div>
         </div>
-      </div>
     </div>
-
-    <div class="row justify-content-center pb-5">
-      <div class="col-lg-9 text-center">
-        <form id="contact-form">
-          <div class="form-row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-              <div class="form-group">
-                <input name="user_name" type="text" class="form-control" placeholder="Your Name">
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-              <div class="form-group">
-                <input name="user_email" type="text" class="form-control" placeholder="Email Address">
-              </div>
-            </div>
-
-            <div class="col-lg-12 col-md-12 col-sm-12">
-              <div class="form-group-2">
-                <textarea name="user_message" class="form-control" rows="8" placeholder="Your Message"></textarea>
-              </div>
-
-              <div class="text-center">
-                <button class="btn btn-main mt-3 " type="submit">Send Message</button>
-              </div>
-            </div>
-          </div>
-          <div class="error" id="error">Sorry Msg dose not sent</div>
-          <div class="success" id="success">Message Sent</div>
-        </form>
-      </div>
-    </div>
-  </div>
 </section>
 
+<!-- Section Course Start -->
+<section class="section course bg-gray">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 text-center">
+				<div class="section-title">
+					<div class="divider mb-3"></div>
+					<h2>Sports</h2>
+					<p>Take A Pick For Selection Of Sports</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+            @foreach ($sport as $sport)
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 rounded-0 p-0 mb-5 mb-lg-0 shadow-sm">
+					    <img src="{{ Storage::url($sport->image) }}" alt="" class="img-fluid">
+					    <div class="card-body">
+						    <a href="{{ route('sport.show', $sport->id) }}"><h4 class="font-secondary mb-0">{{ $sport->name }}</h4></a>
+                            <p>{{ $sport->description }}</p>
+                            <h4 class="text-green">RM price here</h4>
+                        </div>
+				    </div>
+                </div>
+            @endforeach
+		</div>
+	</div>
+</section>
+<!-- Section Course ENd -->
+
+<!-- Section Footer Start -->
 <!-- footer Start -->
 <footer class="footer bg-black-50">
 	<div class="container">
@@ -156,10 +130,10 @@
 				<div class="footer-widget">
 					<h4 class="mb-4 text-white letter-spacing text-uppercase">Quick Links</h4>
 					<ul class="list-unstyled footer-menu lh-40 mb-0">
-                      <li><a href="{{('aboutus')}}"><i class="ti-angle-double-right mr-2"></i>About Us</a></li>
-                      <li><a href="{{('sport')}}"><i class="ti-angle-double-right mr-2"></i>Sport</a></li>
-                      <li><a href="{{('booking')}}"><i class="ti-angle-double-right mr-2"></i>Booking</a></li>
-                      <li><a href="{{('contactus')}}"><i class="ti-angle-double-right mr-2"></i>Contact us</a></li>
+						<li><a href="about.html"><i class="ti-angle-double-right mr-2"></i>About Us</a></li>
+						<li><a href="service.html"><i class="ti-angle-double-right mr-2"></i>Sport</a></li>
+						<li><a href="pricing.html"><i class="ti-angle-double-right mr-2"></i>Booking</a></li>
+						<li><a href="contact.html"><i class="ti-angle-double-right mr-2"></i>Contact us</a></li>
 					</ul>
 				</div>
 			</div>
@@ -177,6 +151,9 @@
 		</div>
 	</div>
 </footer>
+<!-- Section Footer End -->
+
+<!-- Section Footer Scripts -->
    </div>
 
    <!--

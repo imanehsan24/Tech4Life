@@ -27,10 +27,11 @@
 <body>
 <!-- Header Close -->
 
+<!-- Section Menu Start -->
 <!-- Header Start -->
 <nav class="navbar navbar-expand-lg navigation fixed-top" id="navbar">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="{{('dashboard')}}">
+		<a class="navbar-brand" href={{('welcome')}}>
 			<h2 class="text-white text-capitalize"></i>SP4<span class="text-color">Life</span></h2>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsid"
@@ -42,19 +43,35 @@
 				<li class="nav-item active">
 					<a class="nav-link" href="{{('/')}}">Home <span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">Venue</a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="about.html">Badminton</a></li>
-						<li><a class="dropdown-item" href="trainer.html">Squash</a></li>
-						<li><a class="dropdown-item" href="course.html">Football</a></li>
-					</ul>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="service.html">Booking</a></li>
-				<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{('aboutus')}}">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{('sport')}}">Sports</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{('court')}}">Courts</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{('booking')}}">Booking</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{('contactus')}}">Contact</a></li>
 			</ul>
+            @if (!Auth::check())
+			<div class="my-md-0 ml-lg-4 mt-4 mt-lg-0 ml-auto text-lg-right mb-3 mb-lg-0">
+				<a class="navbar-brand" href="{{route('register')}}">
+					<h3><span class="text-white text-capitalize">REGISTER</span></h3>
+				</a>
+				<a class="navbar-brand" href="{{route('login')}}">
+					<h3><span class="text-color">Login</span></h3>
+				</a>
+			</div>
+            @endif
+            @if (Auth::check())
+            <div class="btn-group-left">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"><h3><span class="text-white text-capitalize">{{ Auth::user()->name }}</span></h3></a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{('dashboard')}}">Dashboard</a></li>
+            <li><a class="dropdown-item" href="{{route('profile.edit')}}">Profile</a></li>
+            <li><a class="dropdown-item" href="{{('logout')}}">Logout</a></li>
+        </ul>
+            </li>
+            </div>
+            @endif
 		</div>
 	</div>
 </nav>
@@ -67,7 +84,7 @@
             <div class="request-form">
                <h4 class="text-light">Membership Registration Page</h4>
                <br>
-               
+
                <!-- First Name, Middle name and Last Name Section starts.-->
                <form class = "needs-validation" novalidate>
                 <div class = "form-row">
@@ -89,15 +106,15 @@
                         Gender:
                     </label>
                     <div class = "form-check form-check-inline">
-                        <input class = "form-check-input" type = "radio" name = "Gender" id="Gender1" value="Male" checked> 
+                        <input class = "form-check-input" type = "radio" name = "Gender" id="Gender1" value="Male" checked>
                         <label class = "form-check-label text-light" for = "Gender1"> Male </label>
                       </div>
-    
+
                       <div class = "form-check form-check-inline">
                         <input class = "form-check-input" type = "radio" name = "Gender" id = "Gender2" value="Female">
                         <label class = "form-check-label text-light" for = "Gender2"> Female </label>
                       </div>
-  
+
                     </div>
                 </div>
                </form>
@@ -122,7 +139,7 @@
                         Please provide a valid City.
                       </div>
                     </div>
-  
+
                     <div class = "col-md-3 mb-3">
                       <label for = "state" class="text-light"> State </label>
                       <input type = "text" class = "form-control" id= "state" placeholder = "State" required>
@@ -130,7 +147,7 @@
                         Please provide a valid State.
                       </div>
                     </div>
-  
+
                     <div class = "col-md-3 mb-3">
                       <label for = "zip" class="text-light"> Zipcode </label>
                       <input type = "text" class = "form-control" id = zip" placeholder = "Zipcode" required>
@@ -138,10 +155,10 @@
                         Please provide a valid Zipcode.
                       </div>
                     </div>
-  
+
                   <div class = "form-row">
                       <div class ="col-md-3 mb-3">
-                          <label for = "phonenum" class="text-light"> Phone No. </label> 
+                          <label for = "phonenum" class="text-light"> Phone No. </label>
                           <input type = "text" class = "form-control" id = "phonenum" placeholder = " Phone No." required>
                           <div class = "invalid-feedback">
                             Please provide a valid phone number.
@@ -170,7 +187,7 @@
                 </div>
               </form>
               <!-- Final Section for the registration page ends.-->
-              
+
               <script>
               // Example starter JavaScript for disabling form submissions if there are invalid fields
               (function() {
@@ -194,8 +211,32 @@
             </div>
         </div>
 <!-- Section Dashboard End -->
+
+<!-- Section Footer Start -->
+<!-- footer Start -->
 <footer class="footer bg-black-50">
 	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 mb-5 mb-lg-0">
+				<h2 class="text-white mb-4">SP4LIFE</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus illo ad quo sunt maiores, sint nostrum omnis eaque cumque dolorum.</p>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
+
+			<div class="col-lg-5 col-md-5 mb-5 mb-lg-0">
+				<div class="footer-widget">
+					<h4 class="mb-4 text-white letter-spacing text-uppercase">Quick Links</h4>
+					<ul class="list-unstyled footer-menu lh-40 mb-0">
+						<li><a href="{{('aboutus')}}"><i class="ti-angle-double-right mr-2"></i>About Us</a></li>
+						<li><a href="{{('sport')}}"><i class="ti-angle-double-right mr-2"></i>Sport</a></li>
+						<li><a href="{{('booking')}}"><i class="ti-angle-double-right mr-2"></i>Booking</a></li>
+						<li><a href="{{('contactus')}}"><i class="ti-angle-double-right mr-2"></i>Contact us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
 		<div class="row align-items-center mt-5 px-3 bg-black mx-1">
 			<div class="col-lg-4">
 				<p class="text-white mt-3">SP4Life © 2022</p>
@@ -208,9 +249,9 @@
 		</div>
 	</div>
 </footer>
-<!-- Section Footer Scripts -->
+<!-- Section Footer End -->
 
-   <!-- 
+   <!--
     Essential Scripts
     =====================================-->
 
