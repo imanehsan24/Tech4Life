@@ -12,7 +12,6 @@ use App\Http\Controllers\Member\MemberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\VenueController as FrontendVenueController;
-use App\Http\Controllers\Frontend\CourtController as FrontendCourtController;
 
 /*
 |--------------------------------------------------------------------------
