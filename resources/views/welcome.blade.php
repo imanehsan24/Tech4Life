@@ -45,23 +45,9 @@
 					<a class="nav-link" href="{{('/')}}">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="{{('aboutus')}}">About Us</a></li>
-<<<<<<< HEAD
-				<li class="nav-item"><a class="nav-link" href="{{ route('venue.index') }}">Venue</a></li>
-				<!--<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">Venue</a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="about.html">Badminton</a></li>
-						<li><a class="dropdown-item" href="trainer.html">Squash</a></li>
-						<li><a class="dropdown-item" href="course.html">Football</a></li>
-					</ul>
-				</li>-->
-				<li class="nav-item"><a class="nav-link" href="service.html">Booking</a></li>
-=======
                 <li class="nav-item"><a class="nav-link" href="{{('sport')}}">Sports</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{('court')}}">Courts</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{('booking')}}">Booking</a></li>
->>>>>>> 9444d1ebd72d31ddcdf6afd4420f1a653dd40b58
 				<li class="nav-item"><a class="nav-link" href="{{('contactus')}}">Contact</a></li>
 			</ul>
             @if (!Auth::check())
