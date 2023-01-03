@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-  <title>SP4Life Main Page</title>
+  <title>SP4Life Sports</title>
 
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="{{url('plugins/bootstrap/css/bootstrap.min.css')}}">
@@ -44,12 +44,13 @@
 				<li class="nav-item active">
 					<a class="nav-link" href="{{('/')}}">Home <span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="{{('aboutus')}}">About Us</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{ route('sport.index') }}">Sports</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('court.index') }}">Courts</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Booking</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{('contactus')}}">Contact</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('aboutus')}}">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('sport.index')}}">Sports</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('court.index')}}">Courts</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('booking.step.one')}}">Booking</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('contactus')}}">Contact</a></li>
 			</ul>
+            @if (!Auth::check())
 			<div class="my-md-0 ml-lg-4 mt-4 mt-lg-0 ml-auto text-lg-right mb-3 mb-lg-0">
 				<a class="navbar-brand" href="{{route('register')}}">
 					<h3><span class="text-white text-capitalize">REGISTER</span></h3>
@@ -58,6 +59,20 @@
 					<h3><span class="text-color">Login</span></h3>
 				</a>
 			</div>
+            @endif
+            @if (Auth::check())
+            <div class="btn-group-left">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"><h3><span class="text-white text-capitalize">{{ Auth::user()->name }}</span></h3></a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{('dashboard')}}">Dashboard</a></li>
+            <li><a class="dropdown-item" href="{{route('profile.edit')}}">Profile</a></li>
+            <li><a class="dropdown-item" href="{{('logout')}}">Logout</a></li>
+        </ul>
+            </li>
+            </div>
+            @endif
 		</div>
 	</div>
 </nav>
@@ -97,14 +112,14 @@
 		</div>
 
 		<div class="row">
-            @foreach ($sport as $sport)
+            @foreach ($sport->courts as $court)
                 <div class="col-lg-3 col-md-6">
                     <div class="card border-0 rounded-0 p-0 mb-5 mb-lg-0 shadow-sm">
-					    <img src="{{ Storage::url($sport->image) }}" alt="" class="img-fluid">
+					    <img src="{{ Storage::url($court->image) }}" alt="" class="img-fluid">
 					    <div class="card-body">
-						    <a href="{{ route('sport.show', $sport->id) }}"><h4 class="font-secondary mb-0">{{ $sport->name }}</h4></a>
-                            <p>{{ $sport->description }}</p>
-                            <h4 class="text-green">RM price here</h4>
+						    <a href="{{ route('court.show', $court->id) }}"><h4 class="font-secondary mb-0">{{ $court->name }}</h4></a>
+                            <p>{{ $court->description }}</p>
+                            <h4 class="text-green">RM {{ $court->price }}</h4>
                         </div>
 				    </div>
                 </div>

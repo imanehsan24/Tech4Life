@@ -28,11 +28,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/venue', [FrontendVenueController::class, 'index'])->name('venue.index');
-Route::get('/venue/{venue}', [FrontendVenueController::class, 'show'])->name('venue.show');
-Route::get('/courts', [FrontendCourtController::class, 'index'])->name('court.index');
-Route::get('/booking', [FrontendBookingController::class, 'step1'])->name('booking.step1');
-
 Route::get('/aboutus',function() {
     return view('aboutus');
 });
@@ -42,6 +37,7 @@ Route::get('/contactus',function() {
 });
 
 Route::get('/court',[FrontendCourtController::class, 'index'])->name('court.index');
+Route::get('/court/{court}',[FrontendCourtController::class, 'show'])->name('court.show');
 
 Route::get('/sport', [FrontendSportController::class, 'index'])->name('sport.index');
 Route::get('/sport/{sport}', [FrontendSportController::class, 'show'])->name('sport.show');
