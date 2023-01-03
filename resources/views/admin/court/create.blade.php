@@ -55,6 +55,16 @@
                             <div class="text-sm text-red-400">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="sm:col-span-6 pt-5">
+                        <label for="sports" class="block text-sm font-medium text-gray-700">Sport</label>
+                        <div class="mt-1">
+                            <select id="sports" name="sports[]" class="form-multiselect block w-full mt-1"
+                                multiple>
+                                @foreach ($sports as $sport)
+                                    <option value="{{ $sport->id }}">{{ $sport->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                       <div class="mt-6 p-4">
                           <button type="submit"
                               class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Submit</button>

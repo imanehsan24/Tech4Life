@@ -32,6 +32,10 @@
                 class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                 Price
             </th>
+            <th scope="col"
+            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+            Status
+        </th>
                 <th scope="col"
                     class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                     Edit
@@ -58,6 +62,10 @@
                         class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{ $court->price }}
                     </td>
+                    <td
+                    class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ $court->status }}
+                </td>
                     <td
                         class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         <div class="flex space-x-2">

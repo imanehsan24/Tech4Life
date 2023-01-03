@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>SP4Life Contact Us</title>
+
+  <title>SP4Life Sports</title>
 
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="{{url('plugins/bootstrap/css/bootstrap.min.css')}}">
@@ -25,6 +26,7 @@
 
 </head>
 <body>
+
 
 <!-- Section Menu Start -->
 <!-- Header Start -->
@@ -78,69 +80,54 @@
 
 <!-- Header Close -->
 
-<div class="main-wrapper ">
 <section class="page-title bg-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-          <ul class="list-inline mb-0">
-            <li class="list-inline-item"><a href="index.html" class="text-sm letter-spacing text-white text-uppercase font-weight-bold">Home</a></li>
-            <li class="list-inline-item"><span class="text-white">|</span></li>
-            <li class="list-inline-item"><a href="#" class="text-color text-uppercase text-sm letter-spacing">contact</a></li>
-          </ul>
-           <h1 class="text-lg text-white mt-2">Contact Us</h1>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- contact form start -->
-<section class="contact-form section">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <div class="section-title">
-          <div class="divider mb-3"></div>
-          <h2>Contact Us</h2>
-          <p class="mt-3">Feel free to ask us about anything here!</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><a href="#"
+                            class="text-sm letter-spacing text-white text-uppercase font-weight-bold">Home</a>
+                    </li>
+                    <li class="list-inline-item"><span class="text-white">|</span></li>
+                    <li class="list-inline-item"><a href="#"
+                            class="text-color text-uppercase text-sm letter-spacing">Sports</a></li>
+                </ul>
+                <h1 class="text-lg text-white mt-2">Sports</h1>
+            </div>
         </div>
-      </div>
     </div>
-
-    <div class="row justify-content-center pb-5">
-      <div class="col-lg-9 text-center">
-        <form id="contact-form">
-          <div class="form-row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-              <div class="form-group">
-                <input name="user_name" type="text" class="form-control" placeholder="Your Name">
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
-              <div class="form-group">
-                <input name="user_email" type="text" class="form-control" placeholder="Email Address">
-              </div>
-            </div>
-
-            <div class="col-lg-12 col-md-12 col-sm-12">
-              <div class="form-group-2">
-                <textarea name="user_message" class="form-control" rows="8" placeholder="Your Message"></textarea>
-              </div>
-
-              <div class="text-center">
-                <button class="btn btn-main mt-3 " type="submit">Send Message</button>
-              </div>
-            </div>
-          </div>
-          <div class="error" id="error">Sorry Msg dose not sent</div>
-          <div class="success" id="success">Message Sent</div>
-        </form>
-      </div>
-    </div>
-  </div>
 </section>
 
+<!-- Section Course Start -->
+<section class="section course bg-gray">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 text-center">
+				<div class="section-title">
+					<div class="divider mb-3"></div>
+					<h2>Sport List</h2>
+					<p>Take A Pick For Selection Of Sports</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+            @foreach ($sports as $sport)
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 rounded-0 p-0 mb-5 mb-lg-0 shadow-sm">
+					    <img src="{{ Storage::url($sport->image) }}" alt="" class="img-fluid">
+					    <div class="card-body">
+						    <a href="{{ route('sport.show', $sport->id) }}"><h4 class="font-secondary mb-0">{{ $sport->name }}</h4></a>
+					    </div>
+				    </div>
+                </div>
+            @endforeach
+		</div>
+	</div>
+</section>
+<!-- Section Course ENd -->
+
+<!-- Section Footer Start -->
 <!-- footer Start -->
 <footer class="footer bg-black-50">
 	<div class="container">
@@ -151,19 +138,18 @@
 
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 			</div>
-
 			<div class="col-lg-5 col-md-5 mb-5 mb-lg-0">
-				<div class="footer-widget">
-					<h4 class="mb-4 text-white letter-spacing text-uppercase">Quick Links</h4>
-					<ul class="list-unstyled footer-menu lh-40 mb-0">
+              <div class="footer-widget">
+                  <h4 class="mb-4 text-white letter-spacing text-uppercase">Quick Links</h4>
+                  <ul class="list-unstyled footer-menu lh-40 mb-0">
                       <li><a href="{{('aboutus')}}"><i class="ti-angle-double-right mr-2"></i>About Us</a></li>
                       <li><a href="{{('sport')}}"><i class="ti-angle-double-right mr-2"></i>Sport</a></li>
                       <li><a href="{{('booking')}}"><i class="ti-angle-double-right mr-2"></i>Booking</a></li>
                       <li><a href="{{('contactus')}}"><i class="ti-angle-double-right mr-2"></i>Contact us</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+                  </ul>
+              </div>
+          </div>
+      </div>
 
 		<div class="row align-items-center mt-5 px-3 bg-black mx-1">
 			<div class="col-lg-4">
@@ -177,6 +163,9 @@
 		</div>
 	</div>
 </footer>
+<!-- Section Footer End -->
+
+<!-- Section Footer Scripts -->
    </div>
 
    <!--

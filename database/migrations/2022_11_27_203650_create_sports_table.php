@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bookings', function (Blueprint $table) {
+        Schema::create('sports', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('booking_number');
-            $table->string('email');
-            $table->string('tel_number');
-            $table->dateTime('book_time');
-            $table->unsignedBigInteger('courts_id');
-            $table->foreign('courts_id')->references('id')->on('courts');
+            $table->text('description');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bookings');
+        Schema::dropIfExists('venues');
     }
 };
