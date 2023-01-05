@@ -18,8 +18,12 @@ class Booking extends Model
         'courts_id'
     ];
 
+    protected $dates = [
+        'book_time'
+    ];
+
     public function courts(){
-        return $this->belongsTo(Court::class,'booking_court');
+        return $this->belongsTo(Court::class);
     }
 
 }

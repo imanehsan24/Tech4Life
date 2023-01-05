@@ -41,6 +41,14 @@ class BookingController extends Controller
      */
     public function store(BookingStoreRequest $request)
     {
+        $bookings = Booking::all();
+        $request_date = Carbon::parse($request->book_time);
+        foreach ($bookings as $booking){
+            if ($booking->book_time->format('Y-m-d') == $request_date->format('Y-m-d')) {
+                return back()->with('warning', 'This court is reserved for this date.');
+            }
+        }
+
         $booking = Booking::create([
             'name' => $request->name,
             'booking_number' => $request->booking_number,
