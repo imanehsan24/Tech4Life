@@ -43,6 +43,8 @@ Route::get('/sport', [FrontendSportController::class, 'index'])->name('sport.ind
 Route::get('/sport/{sport}', [FrontendSportController::class, 'show'])->name('sport.show');
 
 Route::get('/booking', [FrontendBookingController::class, 'stepOne'])->name('booking.step.one');
+Route::post('/booking', [FrontendBookingController::class, 'storeStepOne'])->name('booking.store.step.one');
+Route::get('/booking/{booking}', [FrontendBookingController::class, 'qrcode'])->name('booking.qrcode');
 Route::get('/aboutus', [WelcomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/contactus', [WelcomeController::class, 'contactus'])->name('contactus');
 

@@ -69,7 +69,7 @@
                             @enderror
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="courts_id" class="block text-sm font-medium text-gray-700">Table</label>
+                            <label for="courts_id" class="block text-sm font-medium text-gray-700">Court</label>
                             <div class="mt-1">
                                 <select id="courts_id" name="courts_id" class="form-multiselect block w-full mt-1">
                                     @foreach ($courts as $court)
