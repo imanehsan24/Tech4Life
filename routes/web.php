@@ -12,6 +12,7 @@ use App\Http\Controllers\Member\MemberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\VenueController as FrontendVenueController;
+use App\Models\Booking;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +45,9 @@ Route::get('/sport/{sport}', [FrontendSportController::class, 'show'])->name('sp
 
 Route::get('/booking', [FrontendBookingController::class, 'stepOne'])->name('booking.step.one');
 Route::post('/booking', [FrontendBookingController::class, 'storeStepOne'])->name('booking.store.step.one');
-Route::get('/booking/{booking}', [FrontendBookingController::class, 'thankyou'])->name('booking.thankyou');
-Route::get('/booking/{booking}', [FrontendBookingController::class, 'show'])->name('booking.show');
-Route::get('/booking/{booking}', [FrontendBookingController::class, 'qrcode'])->name('booking.qrcode');
+Route::get('/booking/thankyou', [FrontendBookingController::class, 'thankyou'])->name('booking.thankyou');
+Route::get('/booking/show', [FrontendBookingController::class, 'show'])->name('booking.show');
+Route::get('/booking/show/{booking}', [FrontendBookingController::class, 'qrcode'])->name('booking.qrcode');
 Route::get('/aboutus', [WelcomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/contactus', [WelcomeController::class, 'contactus'])->name('contactus');
 

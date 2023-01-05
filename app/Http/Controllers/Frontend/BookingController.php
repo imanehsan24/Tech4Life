@@ -56,7 +56,12 @@ class BookingController extends Controller
 
     public function show(Booking $booking)
     {
-        $booking = Booking::all();
         return view('booking.show', compact('booking'));
+    }
+
+    public function qrcode(Booking $booking)
+    {
+        $booking = Booking::all();
+        return view('booking.qrcode',compact('booking'));
     }
 }
