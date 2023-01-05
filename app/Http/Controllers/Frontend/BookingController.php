@@ -49,8 +49,14 @@ class BookingController extends Controller
             'courts_id' => $request->courts_id,
         ]);
 
-        return view('booking.qrcode', compact('booking'));
+        return view('booking.thankyou', compact('booking'));
 
 
+    }
+
+    public function show(Booking $booking)
+    {
+        $booking = Booking::all();
+        return view('booking.show', compact('booking'));
     }
 }

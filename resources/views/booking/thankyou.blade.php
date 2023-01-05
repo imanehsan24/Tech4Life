@@ -114,18 +114,8 @@
     <div class="border border-dark pt-4">
       <div class="row justify-content-center pb-5">
         <div class="col-lg-9">
-          <h3>Dear {{ Auth::user()->name }}, thank you for booking with SP4Life.</h3>
-          <h4 class="pb-3">Below is your details:</h4>
-          <div class="text-center py-3">
-            <img src="#" alt="" class="img-fluid">Image here
-          </div>
-          <div>
-            <p>Booking User : </p>
-            <p>Booking Number : </p>
-            <p>Telephone Number : </p>
-            <p>Court Booked : </p>
-            <p>Time Booked : </p>
-          </div>
+          <h3>Dear {{ Auth::user()->name }}, your booking has been successful.Thank you for booking with SP4Life.</h3>
+          <h4 class="pb-3">Press below to see your booking history</h4>
         </div>
       </div>
     </div>
@@ -133,7 +123,7 @@
     <div class="row justify-content-center pb-5">
       <div class="col-lg-9 text-center">
         <div class="text-center">
-          <a href="#"><button class="btn btn-main mt-3 " type="submit">BACK TO HOME</button></a>
+          <a href="{{route('booking.show')}}"><button class="btn btn-main mt-3 " type="">BOOKING HISTORY</button></a>
         </div>
       </div>
     </div>
