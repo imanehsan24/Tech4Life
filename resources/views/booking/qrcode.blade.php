@@ -120,11 +120,11 @@
             <img src="#" alt="" class="img-fluid">Image here
           </div>
           <div>
-            <p>Booking User : </p>
-            <p>Booking Number : </p>
-            <p>Telephone Number : </p>
-            <p>Court Booked : </p>
-            <p>Time Booked : </p>
+            <p>Booking User : <span class="text-primary">{{ $booking->name }}</span></p>
+            <p>Booking Number : <span class="text-primary">{{ $booking->booking_number }}</span></p>
+            <p>Telephone Number : <span class="text-primary">{{ $booking->tel_number }}</span></p>
+            <p>Court Booked : <span class="text-primary">{{ $booking->courts->name}}</span></p>
+            <p>Time Booked : <span class="text-primary">{{ $booking->book_time }}</span></p>
           </div>
         </div>
       </div>

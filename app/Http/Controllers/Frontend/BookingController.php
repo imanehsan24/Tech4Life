@@ -9,6 +9,7 @@ use App\Rules\DateBetween;
 use App\Rules\TimeBetween;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
@@ -56,12 +57,13 @@ class BookingController extends Controller
 
     public function show(Booking $booking)
     {
-        return view('booking.show', compact('booking'));
+        $userEmail=Auth::user()->email;
+        $bookingDetail=Booking::where("email","=","$userEmail")->get();
+        return view('booking.show', compact('bookingDetail'));
     }
 
     public function qrcode(Booking $booking)
     {
-        $booking = Booking::all();
         return view('booking.qrcode',compact('booking'));
     }
 }
