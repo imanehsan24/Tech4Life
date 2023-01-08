@@ -117,8 +117,9 @@
           <h3>Dear {{ Auth::user()->name }}, thank you for booking with SP4Life.</h3>
           <h4 class="pb-3">Below is your details:</h4>
           <div class="text-center py-3">
-            <img src="#" alt="" class="img-fluid">Image here
+            {!! QrCode::size(300)->generate($booking->name.'/ '.$booking->courts->name.'/ '.$booking->book_time) !!}
           </div>
+          <br>
           <div>
             <p>Booking User : <span class="text-primary">{{ $booking->name }}</span></p>
             <p>Booking Number : <span class="text-primary">{{ $booking->booking_number }}</span></p>
@@ -133,7 +134,7 @@
     <div class="row justify-content-center pb-5">
       <div class="col-lg-9 text-center">
         <div class="text-center">
-          <a href="#"><button class="btn btn-main mt-3 " type="submit">BACK TO HOME</button></a>
+          <a href="{{route('dashboard')}}"><button class="btn btn-main mt-3 " type="submit">BACK TO HOME</button></a>
         </div>
       </div>
     </div>

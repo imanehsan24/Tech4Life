@@ -32,7 +32,7 @@
 <!-- Header Start -->
 <nav class="navbar navbar-expand-lg navigation fixed-top" id="navbar">
 	<div class="container-fluid">
-		<a class="navbar-brand" href={{('welcome')}}>
+		<a class="navbar-brand" href="#">
 			<h2 class="text-white text-capitalize"></i>SP4<span class="text-color">Life</span></h2>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsid"

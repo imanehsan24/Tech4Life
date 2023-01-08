@@ -115,7 +115,7 @@
             @foreach ($sports as $sport)
                 <div class="col-lg-3 col-md-6">
                     <div class="card border-0 rounded-0 p-0 mb-5 mb-lg-0 shadow-sm">
-					    <img src="{{ Storage::url($sport->image) }}" alt="" class="img-fluid">
+					    <img src="{{ Storage::url($sport->image) }}" alt="" class="img-fluid" >
 					    <div class="card-body">
 						    <a href="{{ route('sport.show', $sport->id) }}"><h4 class="font-secondary mb-0">{{ $sport->name }}</h4></a>
 					    </div>

@@ -90,9 +90,9 @@
                     </li>
                     <li class="list-inline-item"><span class="text-white">|</span></li>
                     <li class="list-inline-item"><a href="#"
-                            class="text-color text-uppercase text-sm letter-spacing">permit</a></li>
+                            class="text-color text-uppercase text-sm letter-spacing">Booking</a></li>
                 </ul>
-                <h1 class="text-lg text-white mt-2">Permit</h1>
+                <h1 class="text-lg text-white mt-2">Booking</h1>
             </div>
         </div>
     </div>
@@ -106,7 +106,7 @@
       <div class="col-lg-8 text-center">
         <div class="section-title">
           <div class="divider mb-1"></div>
-          <h2>Permit</h2>
+          <h2>Thank You</h2>
         </div>
       </div>
     </div>
@@ -114,7 +114,7 @@
     <div class="border border-dark pt-4">
       <div class="row justify-content-center pb-5">
         <div class="col-lg-9">
-          <h3>Dear {{ Auth::user()->name }}, your booking has been successful.Thank you for booking with SP4Life.</h3>
+          <h3>Dear {{ Auth::user()->name }}, your booking has been successful. Thank you for booking with SP4Life.</h3>
           <h4 class="pb-3">Press below to see your booking history</h4>
         </div>
       </div>
