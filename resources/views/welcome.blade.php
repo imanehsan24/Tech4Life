@@ -4,7 +4,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
 
   <title>SP4Life Main Page</title>
 
@@ -32,7 +32,7 @@
 <!-- Header Start -->
 <nav class="navbar navbar-expand-lg navigation fixed-top" id="navbar">
 	<div class="container-fluid">
-		<a class="navbar-brand" href={{('welcome')}}>
+		<a class="navbar-brand" href="#">
 			<h2 class="text-white text-capitalize"></i>SP4<span class="text-color">Life</span></h2>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsid"
@@ -45,19 +45,12 @@
 					<a class="nav-link" href="{{('/')}}">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="{{('aboutus')}}">About Us</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{ route('venue.index') }}">Venue</a></li>
-				<!--<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">Venue</a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="about.html">Badminton</a></li>
-						<li><a class="dropdown-item" href="trainer.html">Squash</a></li>
-						<li><a class="dropdown-item" href="course.html">Football</a></li>
-					</ul>
-				</li>-->
-				<li class="nav-item"><a class="nav-link" href="service.html">Booking</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{('sport')}}">Sports</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{('court')}}">Courts</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{('booking')}}">Booking</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{('contactus')}}">Contact</a></li>
 			</ul>
+            @if (!Auth::check())
 			<div class="my-md-0 ml-lg-4 mt-4 mt-lg-0 ml-auto text-lg-right mb-3 mb-lg-0">
 				<a class="navbar-brand" href="{{route('register')}}">
 					<h3><span class="text-white text-capitalize">REGISTER</span></h3>
@@ -66,6 +59,20 @@
 					<h3><span class="text-color">Login</span></h3>
 				</a>
 			</div>
+            @endif
+            @if (Auth::check())
+            <div class="btn-group-left">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"><h3><span class="text-white text-capitalize">{{ Auth::user()->name }}</span></h3></a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{('dashboard')}}">Dashboard</a></li>
+            <li><a class="dropdown-item" href="{{route('profile.edit')}}">Profile</a></li>
+            <li><a class="dropdown-item" href="{{('logout')}}">Logout</a></li>
+        </ul>
+            </li>
+            </div>
+            @endif
 		</div>
 	</div>
 </nav>
@@ -84,8 +91,8 @@
 			<div class="col-md-8">
 				<span class="h6 d-inline-block mb-4 subhead text-uppercase">UTM Sports Facilities</span>
 				<h1 class="text-uppercase text-white mb-5">Booking your <span class="text-color">sports venue</span><br>with us</h1>
-			
-				<a href="pricing.html" target="_blank" class="btn btn-main " >Booking Now<i class="ti-angle-right ml-3"></i></a>
+
+				<a href="{{('booking')}}" target="_blank" class="btn btn-main " >Booking Now<i class="ti-angle-right ml-3"></i></a>
 			</div>
 		</div>
 	</div>
@@ -211,7 +218,7 @@
 			</div>
 		</div>
 	</div>
-</section>		
+</section>
 
 <!-- Section Gallery END -->
 
@@ -222,8 +229,8 @@
 			<div class="col-lg-8 text-center">
 				<div class="section-title">
 					<div class="divider mb-3"></div>
-					<h2>Booking Venues</h2>
-					<p>We offer the best venue for doing sports activities.</p>
+					<h2>Booking Courts</h2>
+					<p>We offer the best court for doing sports activities.</p>
 				</div>
 			</div>
 		</div>
@@ -276,7 +283,7 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-8">
 				<div class="mt-5 text-center">
-					<a href="course.html" class="btn btn-main">See all our venues</a>
+					<a href="{{('court')}}" class="btn btn-main">See all our courts</a>
 				</div>
 			</div>
 		</div>
@@ -297,15 +304,15 @@
 
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 			</div>
-			
+
 			<div class="col-lg-5 col-md-5 mb-5 mb-lg-0">
 				<div class="footer-widget">
 					<h4 class="mb-4 text-white letter-spacing text-uppercase">Quick Links</h4>
 					<ul class="list-unstyled footer-menu lh-40 mb-0">
-						<li><a href="about.html"><i class="ti-angle-double-right mr-2"></i>About Us</a></li>
-						<li><a href="service.html"><i class="ti-angle-double-right mr-2"></i>Venue</a></li>
-						<li><a href="pricing.html"><i class="ti-angle-double-right mr-2"></i>Booking</a></li>
-						<li><a href="contact.html"><i class="ti-angle-double-right mr-2"></i>Contact us</a></li>
+						<li><a href="{{('aboutus')}}"><i class="ti-angle-double-right mr-2"></i>About Us</a></li>
+						<li><a href="{{('sport')}}"><i class="ti-angle-double-right mr-2"></i>Sport</a></li>
+						<li><a href="{{('booking')}}"><i class="ti-angle-double-right mr-2"></i>Booking</a></li>
+						<li><a href="{{('contactus')}}"><i class="ti-angle-double-right mr-2"></i>Contact us</a></li>
 					</ul>
 				</div>
 			</div>
@@ -328,7 +335,7 @@
 <!-- Section Footer Scripts -->
    </div>
 
-   <!-- 
+   <!--
     Essential Scripts
     =====================================-->
 
@@ -353,4 +360,4 @@
    </body>
 
    </html>
-   
+

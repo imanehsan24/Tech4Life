@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-  <title>SP4Life Courts</title>
+  <title>SP4Life Sports</title>
 
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="{{url('plugins/bootstrap/css/bootstrap.min.css')}}">
@@ -90,9 +90,9 @@
                     </li>
                     <li class="list-inline-item"><span class="text-white">|</span></li>
                     <li class="list-inline-item"><a href="#"
-                            class="text-color text-uppercase text-sm letter-spacing">Courts</a></li>
+                            class="text-color text-uppercase text-sm letter-spacing">Sports</a></li>
                 </ul>
-                <h1 class="text-lg text-white mt-2">Courts</h1>
+                <h1 class="text-lg text-white mt-2">Sports</h1>
             </div>
         </div>
     </div>
@@ -105,21 +105,19 @@
 			<div class="col-lg-8 text-center">
 				<div class="section-title">
 					<div class="divider mb-3"></div>
-					<h2>Courts List</h2>
-					<p>Take A Look On Available Courts (price based on per hour)</p>
+					<h2>Sport List</h2>
+					<p>Take A Pick For Selection Of Sports</p>
 				</div>
 			</div>
 		</div>
 
 		<div class="row">
-            @foreach ($courts as $court)
+            @foreach ($sports as $sport)
                 <div class="col-lg-3 col-md-6">
                     <div class="card border-0 rounded-0 p-0 mb-5 mb-lg-0 shadow-sm">
-					    <img src="{{ Storage::url($court->image) }}" alt="" class="img-fluid">
+					    <img src="{{ Storage::url($sport->image) }}" alt="" class="img-fluid" >
 					    <div class="card-body">
-						    <a href="{{ route('court.show', $court->id) }}"><h4 class="font-secondary mb-0">{{ $court->name }}</h4></a>
-                            <p>{{ $court->description }}</p>
-                            <h4>RM {{ ($court->price) }}</h4>
+						    <a href="{{ route('sport.show', $sport->id) }}"><h4 class="font-secondary mb-0">{{ $sport->name }}</h4></a>
 					    </div>
 				    </div>
                 </div>

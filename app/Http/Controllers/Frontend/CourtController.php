@@ -4,13 +4,20 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Court;
+use App\Models\Sport;
 use Illuminate\Http\Request;
 
 class CourtController extends Controller
 {
     public function index()
     {
-        $court=Court::all();
-        return view('court.index', compact('court'));
+        $courts = Court::all();
+        return view('court.index', compact('courts'));
     }
+
+    public function show(Court $court)
+    {
+        return view('court.show', compact('court'));
+    }
+
 }

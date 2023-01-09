@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-  <title>SP4Life Courts</title>
+  <title>SP4Life Permit</title>
 
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="{{url('plugins/bootstrap/css/bootstrap.min.css')}}">
@@ -44,11 +44,11 @@
 				<li class="nav-item active">
 					<a class="nav-link" href="{{('/')}}">Home <span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="{{('aboutus')}}">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{('sport')}}">Sports</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{('court')}}">Courts</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{('booking')}}">Booking</a></li>
-				<li class="nav-item"><a class="nav-link" href="{{('contactus')}}">Contact</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('aboutus')}}">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('sport.index')}}">Sports</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('court.index')}}">Courts</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('booking.step.one')}}">Booking</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('contactus')}}">Contact</a></li>
 			</ul>
             @if (!Auth::check())
 			<div class="my-md-0 ml-lg-4 mt-4 mt-lg-0 ml-auto text-lg-right mb-3 mb-lg-0">
@@ -90,44 +90,45 @@
                     </li>
                     <li class="list-inline-item"><span class="text-white">|</span></li>
                     <li class="list-inline-item"><a href="#"
-                            class="text-color text-uppercase text-sm letter-spacing">Courts</a></li>
+                            class="text-color text-uppercase text-sm letter-spacing">Booking</a></li>
                 </ul>
-                <h1 class="text-lg text-white mt-2">Courts</h1>
+                <h1 class="text-lg text-white mt-2">Booking</h1>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Section Course Start -->
-<section class="section course bg-gray">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-8 text-center">
-				<div class="section-title">
-					<div class="divider mb-3"></div>
-					<h2>Courts List</h2>
-					<p>Take A Look On Available Courts (price based on per hour)</p>
-				</div>
-			</div>
-		</div>
 
-		<div class="row">
-            @foreach ($courts as $court)
-                <div class="col-lg-3 col-md-6">
-                    <div class="card border-0 rounded-0 p-0 mb-5 mb-lg-0 shadow-sm">
-					    <img src="{{ Storage::url($court->image) }}" alt="" class="img-fluid">
-					    <div class="card-body">
-						    <a href="{{ route('court.show', $court->id) }}"><h4 class="font-secondary mb-0">{{ $court->name }}</h4></a>
-                            <p>{{ $court->description }}</p>
-                            <h4>RM {{ ($court->price) }}</h4>
-					    </div>
-				    </div>
-                </div>
-            @endforeach
-		</div>
-	</div>
+<!-- contact form start -->
+<section class="contact-form section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <div class="section-title">
+          <div class="divider mb-1"></div>
+          <h2>Thank You</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="border border-dark pt-4">
+      <div class="row justify-content-center pb-5">
+        <div class="col-lg-9">
+          <h3>Dear {{ Auth::user()->name }}, your booking has been successful. Thank you for booking with SP4Life.</h3>
+          <h4 class="pb-3">Press below to see your booking history</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center pb-5">
+      <div class="col-lg-9 text-center">
+        <div class="text-center">
+          <a href="{{route('booking.show')}}"><button class="btn btn-main mt-3 " type="">BOOKING HISTORY</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- Section Course ENd -->
 
 <!-- Section Footer Start -->
 <!-- footer Start -->
@@ -140,18 +141,19 @@
 
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 			</div>
+
 			<div class="col-lg-5 col-md-5 mb-5 mb-lg-0">
-              <div class="footer-widget">
-                  <h4 class="mb-4 text-white letter-spacing text-uppercase">Quick Links</h4>
-                  <ul class="list-unstyled footer-menu lh-40 mb-0">
-                      <li><a href="{{('aboutus')}}"><i class="ti-angle-double-right mr-2"></i>About Us</a></li>
-                      <li><a href="{{('sport')}}"><i class="ti-angle-double-right mr-2"></i>Sport</a></li>
-                      <li><a href="{{('booking')}}"><i class="ti-angle-double-right mr-2"></i>Booking</a></li>
-                      <li><a href="{{('contactus')}}"><i class="ti-angle-double-right mr-2"></i>Contact us</a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
+				<div class="footer-widget">
+					<h4 class="mb-4 text-white letter-spacing text-uppercase">Quick Links</h4>
+					<ul class="list-unstyled footer-menu lh-40 mb-0">
+						<li><a href="about.html"><i class="ti-angle-double-right mr-2"></i>About Us</a></li>
+						<li><a href="service.html"><i class="ti-angle-double-right mr-2"></i>sport</a></li>
+						<li><a href="pricing.html"><i class="ti-angle-double-right mr-2"></i>Booking</a></li>
+						<li><a href="contact.html"><i class="ti-angle-double-right mr-2"></i>Contact us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
 		<div class="row align-items-center mt-5 px-3 bg-black mx-1">
 			<div class="col-lg-4">
